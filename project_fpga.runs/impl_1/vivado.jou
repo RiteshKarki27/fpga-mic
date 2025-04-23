@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Wed Apr 23 16:58:36 2025
+# Process ID: 43359
+# Current directory: /home/fpga14/project_fpga/project_fpga.runs/impl_1
+# Command line: vivado -log top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
+# Log file: /home/fpga14/project_fpga/project_fpga.runs/impl_1/top_module.vdi
+# Journal file: /home/fpga14/project_fpga/project_fpga.runs/impl_1/vivado.jou
+# Running On: FPGA14L, OS: Linux, CPU Frequency: 1600.000 MHz, CPU Physical cores: 4, Host memory: 6129 MB
+#-----------------------------------------------------------
+source top_module.tcl -notrace
