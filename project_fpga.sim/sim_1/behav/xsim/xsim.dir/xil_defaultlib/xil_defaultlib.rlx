@@ -1,0 +1,7 @@
+0.7
+2020.2
+May  7 2023
+15:10:42
+/home/fpga14/Downloads/loudness_top.sv,1745409740,systemVerilog,,,,abs_value;iir_filter;logarithm;loudness_top;loudness_top_wrapper;stream_register;temp_encoder,,uvm,../../../../project_fpga.ip_user_files/ipstatic,,,,,
+/home/fpga14/Downloads/pkg.sv,1745409723,systemVerilog,/home/fpga14/Downloads/loudness_top.sv,/home/fpga14/Downloads/loudness_top.sv,,loudness_meter_pkg,,uvm,../../../../project_fpga.ip_user_files/ipstatic,,,,,
+/home/fpga14/project_fpga/project_fpga.sim/sim_1/behav/xsim/glbl.v,1717501569,verilog,,,,glbl,,uvm,,,,,,

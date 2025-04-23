@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/fpga14/Downloads/pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/fpga14/Downloads/loudness_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module loudness_top
+INFO: [VRFC 10-311] analyzing module abs_value
+INFO: [VRFC 10-311] analyzing module logarithm
+INFO: [VRFC 10-311] analyzing module iir_filter
+INFO: [VRFC 10-311] analyzing module temp_encoder
+INFO: [VRFC 10-311] analyzing module stream_register
+INFO: [VRFC 10-311] analyzing module loudness_top_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/fpga14/project_fpga/project_fpga.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
