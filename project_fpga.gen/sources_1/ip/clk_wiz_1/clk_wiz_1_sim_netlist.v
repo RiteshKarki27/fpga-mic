@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-// Date        : Wed Apr 23 16:48:35 2025
+// Date        : Tue Apr 29 11:14:33 2025
 // Host        : FPGA14L running 64-bit Ubuntu 20.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/fpga14/project_fpga/project_fpga.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_sim_netlist.v
@@ -16,28 +16,22 @@
 (* NotValidForBitStream *)
 module clk_wiz_1
    (clk_out1,
-    reset,
     clk_in1);
   output clk_out1;
-  input reset;
   input clk_in1;
 
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire clk_out1;
-  wire reset;
 
   clk_wiz_1_clk_wiz inst
        (.clk_in1(clk_in1),
-        .clk_out1(clk_out1),
-        .reset(reset));
+        .clk_out1(clk_out1));
 endmodule
 
 module clk_wiz_1_clk_wiz
    (clk_out1,
-    reset,
     clk_in1);
   output clk_out1;
-  input reset;
   input clk_in1;
 
   wire clk_in1;
@@ -46,7 +40,6 @@ module clk_wiz_1_clk_wiz
   wire clk_out1_clk_wiz_1;
   wire clkfbout_buf_clk_wiz_1;
   wire clkfbout_clk_wiz_1;
-  wire reset;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED;
@@ -165,7 +158,7 @@ module clk_wiz_1_clk_wiz
         .PSEN(1'b0),
         .PSINCDEC(1'b0),
         .PWRDWN(1'b0),
-        .RST(reset));
+        .RST(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

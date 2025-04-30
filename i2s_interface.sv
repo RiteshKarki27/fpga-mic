@@ -37,7 +37,9 @@ module i2s_to_pcm (
 // generating 16.384Mhz clock form 100Mhz system clk
 logic clk_gen_fast; // use this signal for 16.384Mhz clk
 /// Task 1: instantiate the generated clock wizard IP here
-clk_wiz_1 clkw0(.clk_out1(clk_gen_fast), .reset(arstn), .clkin1(clk));
+/// wrong! assigning a rstn to rst
+clk_wiz_1 clkw0(.clk_out1(clk_gen_fast), //.reset(~arstn),
+                .clk_in1(clk));
 
 // generating 4.098Mhz clk for the mic to support 64Khz sampling. To do so a division by 4 is required.
 localparam int DOWNSAMPLE = 4; // clock divisor (counter upper bond)
@@ -48,7 +50,8 @@ always_ff @(posedge clk_gen_fast) begin
     if(ds_cnt == DOWNSAMPLE) begin 
         ds_cnt <= 1'b0;
     end
-    bclk <= (ds_cnt < DOWNSAMPLE) ? 1'b0 : 1'b1; 
+/// Wrong frequency!    bclk <= (ds_cnt < DOWNSAMPLE) ? 1'b0 : 1'b1; 
+    bclk <= (ds_cnt < DOWNSAMPLE/2) ? 1'b0 : 1'b1;
 end
 
 // generating WS and sel for the mic
@@ -71,7 +74,8 @@ logic [BITS-1:0] lreg, rreg;
 always_ff @(posedge clk_gen_fast) begin
 	if (en) begin
 		if (lrclk == 1'd0) /// Task 3: record audio samples in lreg
-		  lreg[2*BITS-ws_cnt-1] <= data;
+/// Wrong boundry		  lreg[2*BITS-ws_cnt-1] <= data;
+          lreg[BITS-ws_cnt-1] <= data;
  		else 
  		  rreg[2*BITS-ws_cnt-1] <= data;
 	end
@@ -141,8 +145,13 @@ end
 
 // generating axi interface 
 always_ff @(posedge clk) begin
-	if (valid_d1 && outsel == '0) tdata_pcm <= tdata_full[$bits(tdata_full)-1 -: 16]; 
-	if (tdata_pcm[15:0] == 16'b0) tvalid_pcm <= 1'b1;
+	if (valid_d1 && outsel == '0) begin 
+	   tdata_pcm <= tdata_full[$bits(tdata_full)-1 -: 16];
+	   tvalid_pcm <=  1'b1;
+	end 
+	else 
+	   tvalid_pcm <= 1'b0;
+	//tvalid_pcm <= (valid_d1 && outsel == '0) ? 1'b1 : 1'b0;
 	/// Task 4: generate tvalid_pcm
 end
 

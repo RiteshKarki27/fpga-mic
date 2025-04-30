@@ -125,16 +125,37 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param project.hsv.suppressChildGraphs 0
   set_param chipscope.maxJobs 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-6221-FPGA14L/incrSyn
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-178344-FPGA14L/incrSyn
   set_param runs.launchOptions { -jobs 4  }
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint /home/fpga14/project_fpga/project_fpga.runs/impl_1/top_module.dcp
+OPTRACE "create in-memory project" START { }
+  create_project -in_memory -part xc7a100tcsg324-1
+  set_property board_part_repo_paths {/home/fpga14/.Xilinx/Vivado/2023.1/xhub/board_store/xilinx_board_store} [current_project]
+  set_property board_part digilentinc.com:nexys-a7-100t:part0:1.2 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+OPTRACE "create in-memory project" END { }
+OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir /home/fpga14/project_fpga/project_fpga.cache/wt [current_project]
   set_property parent.project_path /home/fpga14/project_fpga/project_fpga.xpr [current_project]
   set_property ip_output_repo /home/fpga14/project_fpga/project_fpga.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
+OPTRACE "set parameters" END { }
+OPTRACE "add files" START { }
+  add_files -quiet /home/fpga14/project_fpga/project_fpga.runs/synth_1/top_module.dcp
+  read_ip -quiet /home/fpga14/project_fpga/project_fpga.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci
+OPTRACE "read constraints: implementation" START { }
+  read_xdc /home/fpga14/project_fpga/project_fpga.srcs/constrs_1/new/floorplan.xdc
+  read_xdc /home/fpga14/project_fpga/project_fpga.srcs/constrs_1/new/timing.xdc
+OPTRACE "read constraints: implementation" END { }
+OPTRACE "add files" END { }
+OPTRACE "link_design" START { }
+  link_design -top top_module -part xc7a100tcsg324-1 
+OPTRACE "link_design" END { }
+OPTRACE "gray box cells" START { }
+OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }

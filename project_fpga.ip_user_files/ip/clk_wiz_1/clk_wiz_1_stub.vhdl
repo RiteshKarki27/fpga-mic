@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
--- Date        : Wed Apr 23 16:48:35 2025
+-- Date        : Tue Apr 29 11:14:32 2025
 -- Host        : FPGA14L running 64-bit Ubuntu 20.04.4 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/fpga14/project_fpga/project_fpga.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_stub.vhdl
@@ -16,7 +16,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity clk_wiz_1 is
   Port ( 
     clk_out1 : out STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
 
@@ -26,6 +25,6 @@ architecture stub of clk_wiz_1 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clk_out1,reset,clk_in1";
+attribute black_box_pad_pin of stub : architecture is "clk_out1,clk_in1";
 begin
 end;

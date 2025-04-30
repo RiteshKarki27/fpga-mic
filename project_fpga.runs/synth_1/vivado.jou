@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Wed Apr 23 16:50:45 2025
-# Process ID: 39662
+# Start of session at: Wed Apr 30 13:40:27 2025
+# Process ID: 190949
 # Current directory: /home/fpga14/project_fpga/project_fpga.runs/synth_1
 # Command line: vivado -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
 # Log file: /home/fpga14/project_fpga/project_fpga.runs/synth_1/top_module.vds
 # Journal file: /home/fpga14/project_fpga/project_fpga.runs/synth_1/vivado.jou
-# Running On: FPGA14L, OS: Linux, CPU Frequency: 1600.000 MHz, CPU Physical cores: 4, Host memory: 6129 MB
+# Running On: FPGA14L, OS: Linux, CPU Frequency: 2167.749 MHz, CPU Physical cores: 4, Host memory: 6129 MB
 #-----------------------------------------------------------
 source top_module.tcl -notrace

@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
--- Date        : Wed Apr 23 16:48:35 2025
+-- Date        : Tue Apr 29 11:14:33 2025
 -- Host        : FPGA14L running 64-bit Ubuntu 20.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/fpga14/project_fpga/project_fpga.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_sim_netlist.vhdl
@@ -18,7 +18,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity clk_wiz_1_clk_wiz is
   port (
     clk_out1 : out STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
 end clk_wiz_1_clk_wiz;
@@ -159,7 +158,7 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       PSEN => '0',
       PSINCDEC => '0',
       PWRDWN => '0',
-      RST => reset
+      RST => '0'
     );
 end STRUCTURE;
 library IEEE;
@@ -169,7 +168,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity clk_wiz_1 is
   port (
     clk_out1 : out STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
@@ -181,7 +179,6 @@ begin
 inst: entity work.clk_wiz_1_clk_wiz
      port map (
       clk_in1 => clk_in1,
-      clk_out1 => clk_out1,
-      reset => reset
+      clk_out1 => clk_out1
     );
 end STRUCTURE;
